@@ -1,3 +1,5 @@
+import router from '@ohos.router';
+
 @Entry
 @Component
 struct Second {
@@ -22,6 +24,15 @@ struct Second {
         .backgroundColor('#0d9ffb')
         .width('40%')
         .height('5%')
+        .onClick(() => {
+          console.info('触发跳转回第一个页面')
+          try {
+            router.back()
+            console.info('成功跳转回第一个页面')
+          } catch (e) {
+            console.info(`跳转回第一个页面失败。code: ${e.code}, message: ${e.message}`)
+          }
+        })
       }
       .width('100%')
     }

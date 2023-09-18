@@ -1,3 +1,5 @@
+import router from '@ohos.router';
+
 @Entry
 @Component
 struct Index {
@@ -23,6 +25,17 @@ struct Index {
         .backgroundColor('#0D9FFB')
         .width('40%')
         .height('5%')
+        .onClick(() => {
+          console.info('触发跳转到下一个页面')
+
+          router.pushUrl({
+            url: 'pages/Second'
+          }).then(() => {
+            console.info('成功跳转到下一个页面')
+          }).catch((e) => {
+            console.info(`跳转到下一个页面失败。Code: ${e.code}, message: ${e.message}`)
+          })
+        })
       }
       .width('100%')
     }
